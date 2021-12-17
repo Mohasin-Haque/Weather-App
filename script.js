@@ -19,7 +19,23 @@ let weather = {
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
         document.querySelector(".weather").classList.remove("loading");
-        document.body.style.backgroundImage =  "url('https://source.unsplash.com/1600x900/?" + name + "')";
+        if(temp < 5) {
+            // Show very cold day
+            document.body.style.backgroundImage = "url('./very_cold.jpg')"
+        } else if(temp < 15) {
+            // Show winter season
+            document.body.style.backgroundImage = `url('./winter.jpg')`;
+        } else if(temp < 20) {
+            // Show spring season
+            document.body.style.backgroundImage = "url('./spring.jpg')"
+        } else if(temp < 30) {
+            // Show summer season
+            document.body.style.backgroundImage = "url('./summer.jpg')"
+        } else {
+            // Show hot sunny day
+            document.body.style.backgroundImage = "url('./sunny_day.jpg')"
+        }
+        // bodyBackground =  "url('https://source.unsplash.com/1600x900/?" + name + "')";
     },
     search: function(){
         this.fetchWeather(document.querySelector(".search-bar").value);
