@@ -26,6 +26,9 @@ body{
 }
 
 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0.5em;
     border-radius: 50%;
     border: none;
